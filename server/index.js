@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.send('Hello, this is the API for a blog application!');
  });
 
+ import cors from 'cors';
+app.use(cors({ origin: 'https://project-mern-memories-rho.vercel.app' }));
+
+
  const CONNECTION_URL = 'mongodb+srv://ronnyfarm222:Mongodbitis%40123@cluster0.mcp4x.mongodb.net/?retryWrites=true&w=majority';
  const PORT = process.env.PORT|| 5000;
 
