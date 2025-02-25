@@ -16,6 +16,10 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
 
+app.get('/', (req, res) => {
+  res.send('Hello from the server!');
+});
+
 const CONNECTION_URL = 'mongodb+srv://ronnyfarm222:Mongodbitis@123@cluster0.mcp4x.mongodb.net/';
 const PORT = process.env.PORT|| 5000;
 
