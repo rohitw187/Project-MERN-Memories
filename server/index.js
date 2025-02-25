@@ -28,8 +28,8 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
   .catch((error) => console.log(`${error} did not connect`));
 
 mongoose.set('useFindAndModify', false);
-// Default route
-app.get('/', (req, res) => {
-  res.send('Hello, this is the API for a blog application!');
-});
+
+export default function handler(req, res) {
+  // Add your logic here
+  res.send('Hello, this is the API for a blog application!');}
 
