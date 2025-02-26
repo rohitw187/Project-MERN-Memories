@@ -39,7 +39,8 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
 
 mongoose.set('useFindAndModify', false);
 
-export default function handler(req, res) {
-  // Add your logic here
-  res.send('Hello, this is the API for a blog application!');}
+// export default function handler(req, res) {
+//   // Add your logic here
+//   res.send('Hello, this is the API for a blog application!');}
 
+export default app;
