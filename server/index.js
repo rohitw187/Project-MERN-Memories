@@ -11,11 +11,15 @@ const app = express();
 
 app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
+const allowedOrigins = [
+  'https://project-mern-memories-rk98.vercel.app', // Frontend URL
+];
+
 app.use(
   cors({
-    origin: '*', // Allows all origins (not recommended for security reasons)
+    origin: allowedOrigins, // Only allow your frontend URL
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    credentials: true,
+    credentials: true, // Allow cookies or auth headers
   })
 );
 
