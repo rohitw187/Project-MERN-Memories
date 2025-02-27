@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
   res.send('Hello, this is the API for a blog application!');
  });
 
- const CONNECTION_URL = "mongodb+srv://ronnyfarm222:Mongodbitis%40123@cluster0.mcp4x.mongodb.net/myDatabaseName?retryWrites=true&w=majority";
+ const CONNECTION_URL = "mongodb+srv://ronnyfarm222:Mongodbitis@123@cluster0.mcp4x.mongodb.net/";
  const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
