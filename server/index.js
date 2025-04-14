@@ -17,7 +17,7 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: allowedOrigins, // Only allow your frontend URL
+    origin: '*', // Only allow your frontend URL
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true, // Allow cookies or auth headers
   })
