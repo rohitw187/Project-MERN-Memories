@@ -12,16 +12,18 @@ const app = express();
 app.use(express.json({ limit: '30mb', extended: true }))
 app.use(express.urlencoded({ limit: '30mb', extended: true }))
 const allowedOrigins = [
-  'https://project-mern-memories-rk98.vercel.app', // Frontend URL
+  'http://localhost:3000', // Frontend URL
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins, // Only allow your frontend URL
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    credentials: true, // Allow cookies or auth headers
+    credentials: true,
   })
 );
+
+app.options('*', cors()); // Allow preflight for all routes
 
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
