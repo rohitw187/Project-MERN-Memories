@@ -1,0 +1,9 @@
+.theme-selector{
+    background-color: white;
+}
+#theme-selector-label {
+    color: #000; /* Solid black for clarity */
+    font-weight: 600; /* Heavier than 200 for boldness */
+    font-size: 1rem;  /* Increase size for readability */
+    font-family: 'Arial', sans-serif; /* Clean and legible font */
+}

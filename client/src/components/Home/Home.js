@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Container, Grow, Grid, AppBar, TextField, Button, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import ChipInput from 'material-ui-chip-input';
@@ -9,10 +9,13 @@ import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
 import useStyles from './styles';
+import './home.css';
+
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+
 const Home = () => {
   const classes = useStyles();
   const query = useQuery();
@@ -24,7 +27,13 @@ const Home = () => {
 
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState([]);
+  const [themeColor, setThemeColor] = useState(localStorage.getItem('themeColor') || 'white'); // Default theme
   const history = useHistory();
+
+  useEffect(() => {
+    document.body.style.backgroundColor = themeColor;
+    localStorage.setItem('themeColor', themeColor); // Store the theme in localStorage
+  }, [themeColor]);
 
   const searchPost = () => {
     if (search.trim() || tags) {
@@ -45,6 +54,10 @@ const Home = () => {
 
   const handleDeleteChip = (chipToDelete) => setTags(tags.filter((tag) => tag !== chipToDelete));
 
+  const handleThemeChange = (event) => {
+    setThemeColor(event.target.value);
+  };
+
   return (
     <Grow in>
       <Container maxWidth="xl">
@@ -54,7 +67,15 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <AppBar className={classes.appBarSearch} position="static" color="inherit">
-              <TextField onKeyDown={handleKeyPress} name="search" variant="outlined" label="Search Memories" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} />
+              <TextField
+                onKeyDown={handleKeyPress}
+                name="search"
+                variant="outlined"
+                label="Search Memories"
+                fullWidth
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
               <ChipInput
                 style={{ margin: '10px 0' }}
                 value={tags}
@@ -63,9 +84,29 @@ const Home = () => {
                 label="Search Tags"
                 variant="outlined"
               />
-              <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+              <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">
+                Search
+              </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
+            {/* Theme Selection Dropdown */}
+            <FormControl variant="outlined" style={{ marginTop: '20px', width: '100%' }} className='theme-selector'>
+              <InputLabel id="theme-selector-label">Theme</InputLabel>
+              <Select
+                labelId="theme-selector-label"
+                value={themeColor}
+                onChange={handleThemeChange}
+                label="Theme"          
+              >
+                <MenuItem value="white">White</MenuItem>
+                <MenuItem value="black">Black</MenuItem>
+                <MenuItem value="pink">Pink</MenuItem>
+                <MenuItem value="brown">Brown</MenuItem>
+                <MenuItem value='white'>Reset</MenuItem>
+              </Select>
+            </FormControl>
+
+            {/* Pagination */}
             {(!searchQuery && !tags.length) && (
               <Paper className={classes.pagination} elevation={6}>
                 <Pagination page={page} />
