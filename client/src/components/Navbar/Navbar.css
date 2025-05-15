@@ -1,0 +1,64 @@
+/* navbar.css */
+#navbar-container {
+  background: linear-gradient(90deg, #ff0080 0%, #ff8c00 100%) !important; /* Neon gradient */
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  padding: 12px 30px !important;
+  color: white !important;
+  transition: all 0.3s ease-in-out !important;
+  backdrop-filter: blur(12px) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#navbar-container:hover {
+  background: linear-gradient(90deg, #ff8c00 0%, #ff0080 100%) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Branding logo inside navbar */
+#navbar-container .brandContainer img {
+  margin-right: 10px;
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.4)) !important;
+}
+
+/* Styling profile avatar and text */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile .purple {
+  background-color: #9b4dca !important;
+  color: white !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.profile:hover .purple {
+  transform: scale(1.1) rotate(15deg);
+  background-color: #7a3bbd !important;
+}
+
+.profile .userName {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #fff;
+}
+
+.logout {
+  background-color: #ff0080 !important;
+  color: #fff !important;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout:hover {
+  background-color: #ff4d99 !important;
+  transform: scale(1.05);
+}

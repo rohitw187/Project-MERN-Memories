@@ -1,0 +1,28 @@
+#home-container {
+  transition: all 0.4s ease-in-out !important;
+  background: linear-gradient(135deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5)) !important;
+  backdrop-filter: blur(14px) !important;
+  padding: 24px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 150, 0.4) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  font-family: 'Heebo', sans-serif !important;
+  animation: popGlow 4s ease-in-out infinite alternate !important;
+}
+
+/* On hover, make it even more dynamic */
+#home-container:hover {
+  background: linear-gradient(135deg, rgba(0, 204, 255, 0.6), rgba(255, 0, 150, 0.6)) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 204, 255, 0.5) !important;
+}
+
+/* Glowing animation */
+@keyframes popGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.3), 0 0 10px rgba(0, 204, 255, 0.2) !important;
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(255, 0, 150, 0.6), 0 0 20px rgba(0, 204, 255, 0.4) !important;
+  }
+}

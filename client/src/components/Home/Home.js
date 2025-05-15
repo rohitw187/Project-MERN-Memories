@@ -9,6 +9,7 @@ import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
 import useStyles from './styles';
+import './Home.css'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -47,7 +48,7 @@ const Home = () => {
 
   return (
     <Grow in>
-      <Container maxWidth="xl">
+      <Container  id="home-container" maxWidth="xl">
         <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
           <Grid item xs={12} sm={6} md={9}>
             <Posts setCurrentId={setCurrentId} />

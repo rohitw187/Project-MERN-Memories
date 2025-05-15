@@ -8,6 +8,7 @@ import memoriesLogo from '../../images/memoriesLogo.png';
 import memoriesText from '../../images/memoriesText.png';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
+import './Navbar.css';
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -37,7 +38,7 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar id="navbar-container" className={classes.appBar} position="static" color="inherit">
       <Link to="/" className={classes.brandContainer}>
         <img component={Link} to="/" src={memoriesText} alt="icon" height="45px" />
         <img className={classes.image} src={memoriesLogo} alt="icon" height="40px" />

@@ -1,9 +1,6 @@
-
 body {
-    background-color: #f7f8fc;
-}
-
-* {
-    /* font-family: 'Noto Sans JP' !important; */
-    font-family: 'Heebo', sans-serif !important;
+  background: linear-gradient(135deg, rgba(31, 33, 40, 0.7), rgba(59, 64, 73, 0.7)), 
+  url('./images/colorful-painting-galaxy-with-blue-red-yellow-swirls_639806-6287.avif') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
 }
